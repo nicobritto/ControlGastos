@@ -3,7 +3,7 @@ import Gasto from './Gasto'
 
 
 
-const ListadoGastos = ({gastos,setGastoEditar}) => {
+const ListadoGastos = ({gastos,setGastoEditar,eliminarGasto}) => {
   return (
     <div className='listados-gastos contenedor'>
         <h2>{gastos.length ? 'Gastos' : 'No hay Gastos Aun'}</h2>
@@ -13,6 +13,7 @@ const ListadoGastos = ({gastos,setGastoEditar}) => {
               key={gasto.id}  
               gasto={gasto}
               setGastoEditar={setGastoEditar}
+              eliminarGasto={eliminarGasto}
               />
         ))}
     </div>

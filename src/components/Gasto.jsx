@@ -30,30 +30,32 @@ const diccionarioIconos = {
 
 }
 
-const Gasto = ({ gasto,setGastoEditar }) => {
+const Gasto = ({ gasto, setGastoEditar,eliminarGasto }) => {
 
   const { categoria, nombre, cantidad, id, fecha } = gasto;
 
-  const leadingActions =()=>(
-   <LeadingActions>
-    <SwipeAction onClick={()=>setGastoEditar(gasto)}> 
-      Editar
-    </SwipeAction>
-   </LeadingActions>
-  );
-  const trailingActions =()=>(
-     <TrailingActions>
-      <SwipeAction onClick={()=>console.log('borrar')}>
-       Eliminar
+  const leadingActions = () => (
+    <LeadingActions>
+      <SwipeAction onClick={() => setGastoEditar(gasto)}>
+        Editar
       </SwipeAction>
-     </TrailingActions>
+    </LeadingActions>
+  );
+  const trailingActions = () => (
+    <TrailingActions>
+      <SwipeAction 
+      onClick={() => eliminarGasto(id)}
+      destructive={true}>
+        Eliminar
+      </SwipeAction> 
+    </TrailingActions>
   );
 
   return (
     <SwipeableList>
-      <SwipeableListItem 
-      leadingActions={leadingActions()} 
-      trailingActions={trailingActions()}>{/*es la parte de atras al deslizar */}{/*leading es la parte de adelante al deslicar que es lo que va hacer   */}2
+      <SwipeableListItem
+        leadingActions={leadingActions()}
+        trailingActions={trailingActions()}>{/*es la parte de atras al deslizar */}{/*leading es la parte de adelante al deslicar que es lo que va hacer   */}2
         <div className='gasto sombra'>
           <div className='contenido-gasto'>
             <img
